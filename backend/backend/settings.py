@@ -39,7 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'faqs',
     'ckeditor',
+    'rest_framework',
 ]
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',  # Redis server location
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+    }
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
